@@ -38,37 +38,31 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 255, 255, 255),
-      body: SingleChildScrollView(
+      backgroundColor: Color.fromARGB(255, 254, 255, 203),
+      body: Container(
+        margin: const EdgeInsets.only(left: 30, right: 30, top: 30),
         child: Column(
           children: [
-            Stack(alignment: AlignmentDirectional.center, children: [
-              Container(
-                height: 120,
-                decoration: const BoxDecoration(
-                  color: Color.fromARGB(255, 0, 255, 132),
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(100),
-                    bottomRight: Radius.circular(100),
+            Container(
+              width: 250,
+              alignment: Alignment.center,
+              padding: const EdgeInsets.only(top: 100, bottom: 10),
+              decoration: const BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(
+                    width: 0.5,
                   ),
                 ),
               ),
-              const Align(
-                  alignment: Alignment.topCenter,
-                  child: Text(
-                    'URLスキャン',
-                    style: TextStyle(
-                        fontSize: 23,
-                        color: Color.fromARGB(255, 0, 0, 0),
-                        fontWeight: FontWeight.w100,
-                        letterSpacing: 3.0),
-                  ))
-            ]),
+              child: const Text(
+                'URL認識アプリ',
+                style: TextStyle(fontSize: 25),
+              ),
+            ),
+            SizedBox(height: 200),
             Container(
-              padding: const EdgeInsets.only(top: 50),
-              margin: const EdgeInsets.all(25),
               child: SizedBox(
-                height: 110,
+                height: 100,
                 width: 1000,
                 child: ElevatedButton(
                     onPressed: () async {
@@ -81,24 +75,63 @@ class _HomePageState extends State<HomePage> {
                       englishText = '';
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.red[100], // background
+                      primary: Color.fromARGB(255, 60, 107, 0), // background
                       onPrimary: Colors.white, // foreground
                     ),
-                    child: Row(
-                      children: const [
-                        Icon(
-                          Icons.collections,
-                          color: Colors.white,
-                          size: 50.0,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(left: 30),
-                          child: Text(
-                            '画像選択',
-                            style: TextStyle(fontSize: 24),
+                    child: Container(
+                      padding: EdgeInsets.only(left: 20),
+                      child: Row(
+                        children: const [
+                          Icon(
+                            Icons.collections,
+                            color: Colors.white,
+                            size: 50.0,
                           ),
-                        ),
-                      ],
+                          Padding(
+                            padding: EdgeInsets.only(left: 30),
+                            child: Text(
+                              '画像から検索',
+                              style:
+                                  TextStyle(fontSize: 24, letterSpacing: 1.0),
+                            ),
+                          ),
+                        ],
+                      ),
+                    )),
+              ),
+            ),
+            SizedBox(
+              height: 100,
+            ),
+            Container(
+              child: SizedBox(
+                height: 100,
+                width: 1000,
+                child: ElevatedButton(
+                    onPressed: () async {},
+                    style: ElevatedButton.styleFrom(
+                      primary: Color.fromARGB(255, 60, 107, 0), // background
+                      onPrimary: Colors.white, // foreground
+                    ),
+                    child: Container(
+                      padding: EdgeInsets.only(left: 20),
+                      child: Row(
+                        children: const [
+                          Icon(
+                            Icons.history,
+                            color: Colors.white,
+                            size: 50.0,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(left: 30),
+                            child: Text(
+                              '履歴から検索',
+                              style:
+                                  TextStyle(fontSize: 24, letterSpacing: 1.0),
+                            ),
+                          ),
+                        ],
+                      ),
                     )),
               ),
             ),
@@ -106,30 +139,5 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
-    // return Scaffold(
-    //   body: Center(
-    //     child: Column(
-    //       mainAxisAlignment: MainAxisAlignment.center,
-    //       children: [
-    //         const Text('MLkit'),
-    //         const SizedBox(height: 100),
-    //         SizedBox(
-    //           height: 50,
-    //           width: 200,
-    //           child: ElevatedButton(
-    //               onPressed: () async {
-    //                 await pickImageFromGallery();
-    //                 await Navigator.push(
-    //                     context,
-    //                     MaterialPageRoute(
-    //                         builder: (context) => TranslatePage(englishText)));
-    //                 englishText = '';
-    //               },
-    //               child: const Text('画像選択')),
-    //         ),
-    //       ],
-    //     ),
-    //   ),
-    // );
   }
 }
